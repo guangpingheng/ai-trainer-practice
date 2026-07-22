@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>人工智能训练师（三级）理论练习</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="exam-header">
+      <div>
+        <p class="eyebrow">本地离线练习</p>
+        <h1>人工智能训练师（三级）理论练习</h1>
+      </div>
+      <div class="exam-summary" aria-label="考试统计">
+        <div>
+          <span>总题数</span>
+          <strong id="totalCount">900</strong>
+        </div>
+        <div>
+          <span>成功率</span>
+          <strong id="successRate">0%</strong>
+        </div>
+        <div>
+          <span>剩余</span>
+          <strong id="remainingCount">900</strong>
+        </div>
+      </div>
+    </header>
+
+    <div class="app-shell">
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow" id="questionTypeLabel">判断题</p>
+            <h2 id="questionPosition">第 1 / 900 题</h2>
+          </div>
+          <div class="topbar-actions">
+            <button class="ghost-button" id="toggleMarkButton" type="button">标记不确定</button>
+          </div>
+        </header>
+
+        <section class="question-card" aria-live="polite">
+          <div class="question-meta">
+            <span id="questionId">judge-001</span>
+            <span id="statusPill">未作答</span>
+          </div>
+
+          <p class="question-stem" id="questionStem"></p>
+          <div class="options" id="optionsList"></div>
+
+          <div class="feedback" id="feedback" hidden></div>
+
+          <div class="explanation-block" id="explanationBlock" hidden>
+            <button class="link-button" id="toggleExplanationButton" type="button">查看解释</button>
+            <p id="explanationText" hidden></p>
+          </div>
+
+          <div class="question-actions">
+            <button class="secondary-button" id="prevButton" type="button">上一题</button>
+            <button class="primary-button" id="submitButton" type="button">提交答案</button>
+            <button class="secondary-button" id="nextButton" type="button">下一题</button>
+          </div>
+        </section>
+
+        <section class="empty-state" id="emptyState" hidden>
+          <h2>当前范围暂无题目</h2>
+          <p>换一个题型筛选，或先完成一些题目后再进入错题回看。</p>
+        </section>
+      </main>
+
+      <aside class="sidebar" aria-label="答题卡与练习导航">
+        <section class="panel stats-panel" aria-label="练习进度">
+          <div class="stat-line">
+            <span>当前范围</span>
+            <strong id="scopeLabel">全部题目</strong>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <span id="progressBar"></span>
+          </div>
+          <div class="scope-stats">
+            <span id="scopeAnsweredCount">0 / 900 已答</span>
+            <strong id="scopeSuccessRate">0%</strong>
+          </div>
+        </section>
+
+        <section class="panel stats-panel" aria-label="练习进度">
+          <div class="stats-grid">
+            <div>
+              <span>已答</span>
+              <strong id="answeredCount">0</strong>
+            </div>
+            <div>
+              <span>成功率</span>
+              <strong id="accuracyRate">0%</strong>
+            </div>
+            <div>
+              <span>错题</span>
+              <strong id="wrongCount">0</strong>
+            </div>
+            <div>
+              <span>不确定</span>
+              <strong id="markedCount">0</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" aria-label="题型筛选">
+          <h2>题型</h2>
+          <div class="filter-list" id="filterList">
+            <button class="filter-button is-active" type="button" data-filter="all">全部</button>
+            <button class="filter-button" type="button" data-filter="judge">判断题</button>
+            <button class="filter-button" type="button" data-filter="single">单选题</button>
+            <button class="filter-button" type="button" data-filter="multi">多选题</button>
+            <button class="filter-button" type="button" data-filter="wrong">错题回看</button>
+            <button class="filter-button" type="button" data-filter="marked">标记题</button>
+          </div>
+        </section>
+
+        <section class="panel" aria-label="练习操作">
+          <h2>操作</h2>
+          <button class="primary-button full-width" id="wrongReviewButton" type="button">错题复习</button>
+          <button class="secondary-button" id="resetButton" type="button">重置练习记录</button>
+          <p class="source-note">答案为整理版；源 DOCX 未包含官方答案区。</p>
+        </section>
+
+        <section class="panel answer-panel" aria-label="答题卡">
+          <div class="answer-panel-head">
+            <h2>答题卡</h2>
+            <div class="legend" aria-label="题目状态图例">
+              <span><i class="legend-dot unanswered"></i>未答</span>
+              <span><i class="legend-dot correct"></i>正确</span>
+              <span><i class="legend-dot wrong"></i>错误</span>
+              <span><i class="legend-dot marked"></i>标记</span>
+            </div>
+          </div>
+          <div class="question-navigator" id="questionNavigator"></div>
+        </section>
+      </aside>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
